@@ -103,11 +103,10 @@ public class BookController {
                 List<BookDTO> bookDTOS = bookService.getAllByPublisher(publisher);
                 if (bookDTOS.isEmpty()){
                     messages.add("There are no books with the given publisher.");
-                    response.setMessage(messages);
                 }else{
                     messages.add("The books has been found.");
-                    response.setMessage(messages);
                 }
+                response.setMessage(messages);
                 response.setMessage(messages);
                 response.setState(ResponseStateEnum.SUCCESS);
                 response.setData(bookDTOS);

@@ -12,5 +12,6 @@ public interface BookRepository {
     List<BookDomain> findByAuthor(String author);
     List<BookDomain> findByPublisher(String publisher);
     BookDomain save(BookDomain b);
+    BookDomain findByName(String name);
     void delete(BookDomain b);
 }

@@ -40,10 +40,9 @@ public class BookService {
         return bookDTOMapper.toBooksDTO(bookRepository.findByAuthor(author));
     }
     public BookDTO newBook(BookDTO b) {
-        if(bookRepository.findByIsbn(b.getIsbn())== null){
+        if(bookRepository.findByName(b.getName())!= null){
             String userMessage ="The Book already exists";
             throw BookStoreDomainException.CREATE(TypeExceptionEnum.BUSINESS,userMessage);
-
         }
         return bookDTOMapper.toBookDTO(bookRepository.save(bookDTOMapper.toBookDomain(b)));
     }

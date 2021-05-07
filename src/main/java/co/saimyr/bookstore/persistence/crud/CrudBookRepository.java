@@ -12,4 +12,5 @@ public interface CrudBookRepository extends CrudRepository<BookEntity, Integer> 
     List<BookEntity> findByPublisherOrderByNameAsc(String publisher);
     List<BookEntity> findAllByOrderByNameAsc();
     BookEntity findByIsbn(Integer isbn);
+    BookEntity findByName(String name);
 }

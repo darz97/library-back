@@ -42,6 +42,11 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
+    public BookDomain findByName(String name) {
+        return bookMapper.toBook(h2BookRepo.findByName(name));
+    }
+
+    @Override
     public void delete(BookDomain b) {
         h2BookRepo.delete(bookMapper.toBookEntity(b));
     }
