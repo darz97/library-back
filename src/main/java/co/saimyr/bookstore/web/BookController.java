@@ -62,6 +62,7 @@ public class BookController {
                 messages.add("The author can not be null or empty.");
                 response.setMessage(messages);
             }
+
             if(validBook){
                 List<BookDTO> bookDTOS = bookService.getAllByAuthor(author);
                 if (bookDTOS.isEmpty()){
@@ -135,6 +136,13 @@ public class BookController {
             if(ObjectUtil.objectIsNull(book)){
                 messages.add("The book can not be null");
                 response.setMessage(messages);
+                validBook=false;
+            }
+            if(StringUtil.isEmpty(book.getName())|| StringUtil.isEmpty(book.getAuthor()) ||
+                    StringUtil.isEmpty(book.getPublisher())|| StringUtil.isEmpty(book.getGenre())){
+                messages.add("The book fields can not be null");
+                response.setMessage(messages);
+                validBook = false;
             }
             if(validBook){
                 BookDTO bookDTO = bookService.newBook(book);
